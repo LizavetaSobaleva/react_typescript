@@ -8,7 +8,7 @@ interface ProductProps {
 export function Product({product}: ProductProps) {
     const [details, setDetails] = useState(false)
 
-    const btnBgClassName = details ? 'bg-yellow-400' : 'bg-blue-400'
+    const btnBgClassName = details ? 'bg-yellow-400' : 'bg-sky-400 hover:bg-sky-500'
     const btnClasses = ['py-2 px-4 border', btnBgClassName ]
 
     return(
@@ -24,7 +24,7 @@ export function Product({product}: ProductProps) {
             </button>
             {details && <div>
                 <p>{product.description}</p>
-                <p>Rate: <span style={{fontWeight: 'bold'}}>{product.rating.rate}</span></p>
+                <p>Rate: <span style={{fontWeight: 'bold'}}>{product?.rating?.rate}</span></p>
             </div>}
             
             </div>

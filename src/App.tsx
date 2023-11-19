@@ -1,23 +1,21 @@
-import { Product } from "./components/Product";
-import { useProducts } from "./hooks/products";
+import { Route, Routes } from "react-router-dom";
+import { ProductsPage } from "./pages/ProductsPage";
+import { AboutPage } from "./pages/AboutPage";
+import { Navigation } from "./components/Navigation";
 
 function App() {
-  const { loading, products, error } = useProducts();
-
   return (
-    <div className="container mx-auto max-w-2xl pt-5">
-      {loading && <p className="text-center"> Loading... </p>}
-      {error && <p className="text-center text-red-600"> {error}</p>}
-      {products.map((product) => (
-        <Product product={product} key={product.id} />
-      ))}
-    </div>
+    <>
+    <Navigation/>
+      <Routes>
+        <Route path="/" element={<ProductsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </>
   );
 }
 
 export default App;
-
-
 
 // const [count, setCount]  = useState(0)
 
